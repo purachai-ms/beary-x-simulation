@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot
+  name="Beary-x_modle">
+
+<!-- ******************** base ********************-->
+  <link name="base_footprint"/>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.055215367726052 0.000593325287443985 0.175820748967485"
+        rpy="0 0 0" />
+      <mass
+        value="0.00543124747866457" />
+      <inertia
+        ixx="0.000159721744138676"
+        ixy="1.19956200631725E-06"
+        ixz="2.03850511927702E-05"
+        iyy="0.000253171802085353"
+        iyz="6.41694975734622E-08"
+        izz="0.00036548556072617" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/dae/base_link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.737254901960784 0.901960784313726 0.952941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/stl/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+  
+  <link name="base_scan"/>
+    
+  <joint name="scan_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_scan"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+<!-- ******************** end base ********************-->
+
+
+
+<!-- ******************** wheel_left ********************-->
+  <link
+    name="wheel_left_link">
+    <inertial>
+      <origin
+        xyz="-1.12113097006836E-09 7.22144124970514E-07 0.000161702225044691"
+        rpy="0 0 0" />
+      <mass
+        value="0.00139329690452043" />
+      <inertia
+        ixx="3.36624803921687E-06"
+        ixy="7.39300875701478E-15"
+        ixz="-1.15025055548288E-15"
+        iyy="3.36621257139744E-06"
+        iyz="5.81486794290515E-11"
+        izz="6.17473155498386E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/dae/wheel_left_link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.737254901960784 0.901960784313726 0.952941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/stl/wheel_left_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="wheel_left_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.19775 0.066749"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_left_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+<!-- ******************** end wheel_left ********************-->
+
+<!-- ******************** wheel_right ********************-->
+  <link
+    name="wheel_right_link">
+    <inertial>
+      <origin
+        xyz="1.12113096972269E-09 7.22144124984392E-07 -0.000161702225044719"
+        rpy="0 0 0" />
+      <mass
+        value="0.00139329690452043" />
+      <inertia
+        ixx="3.36624803921687E-06"
+        ixy="-7.39300875781191E-15"
+        ixz="-1.15023077039508E-15"
+        iyy="3.36621257139743E-06"
+        iyz="-5.81486794292593E-11"
+        izz="6.17473155498386E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/dae/wheel_right_link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.737254901960784 0.901960784313726 0.952941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/stl/wheel_right_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="wheel_right_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.19775 0.066749"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_right_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+<!-- ******************** end wheel_right ********************-->
+
+<!-- ******************** imu ********************-->
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="-0.20 0 0.05" rpy="0 0 -1.5708"/>
+  </joint>
+
+  <link name="imu_link">
+    
+  </link>
+<!-- ******************** end imu ********************-->
+
+<!-- ******************** scan_1 ********************-->
+  <link
+    name="base_scan_1">
+    <inertial>
+      <origin
+        xyz="-0.00177571998499404 -0.00176965666304121 0.00608267427809162"
+        rpy="0 0 0" />
+      <mass
+        value="3.74307663679103E-05" />
+      <inertia
+        ixx="3.08343933333962E-08"
+        ixy="-2.78438473410044E-09"
+        ixz="-7.56893245046912E-10"
+        iyy="3.08304806407341E-08"
+        iyz="-7.57864800840152E-10"
+        izz="4.50852856571892E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/dae/scan_1.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.737254901960784 0.901960784313726 0.952941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/stl/scan_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="lidar_joint_1"
+    type="fixed">
+    <origin
+      xyz="0.3 0.235 0.12203"
+      rpy="0 0 0" />
+    <parent
+      link="base_scan" />
+    <child
+      link="base_scan_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+<!-- ******************** end scan_1 ********************-->
+
+<!-- ******************** scan_2 ********************-->
+  <link
+    name="base_scan_2">
+    <inertial>
+      <origin
+        xyz="0.00177571998501846 0.00176965666317083 0.00608267427810945"
+        rpy="0 0 0" />
+      <mass
+        value="3.74307663679113E-05" />
+      <inertia
+        ixx="3.08343933332249E-08"
+        ixy="-2.7843847341003E-09"
+        ixz="7.56893245050378E-10"
+        iyy="3.08304806405632E-08"
+        iyz="7.57864800841837E-10"
+        izz="4.508528565719E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/dae/scan_2.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.737254901960784 0.901960784313726 0.952941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/stl/scan_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="lidar_joint_2"
+    type="fixed">
+    <origin
+      xyz="-0.3 -0.235 0.12203"
+      rpy="0 0 0" />
+    <parent
+      link="base_scan" />
+    <child
+      link="base_scan_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+<!-- ******************** end scan_2 ********************-->
+
+<!-- ******************** camera3d ********************-->
+  <link
+    name="camera_link">
+    <inertial>
+      <origin
+        xyz="-0.000849999999999795 -1.26422554673857E-14 -1.93178806284777E-14"
+        rpy="0 0 0" />
+      <mass
+        value="1.4479147974995E-06" />
+      <inertia
+        ixx="4.187216574138E-10"
+        ixy="1.16576378318712E-25"
+        ixz="-5.75905704698494E-26"
+        iyy="2.60889142369011E-11"
+        iyz="1.89980911267052E-26"
+        izz="3.93330155471028E-10" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/dae/camera3d_link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.737254901960784 0.901960784313726 0.952941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearyx_model/meshes/stl/camera3d_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="camera_joint"
+    type="fixed">
+    <origin
+      xyz="0.352 0 0.1953"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+<!-- ******************** end camera3d ********************-->
+
+<!-- ******************** infrared ********************-->
+  <joint name="infrared_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="infrared_link"/>
+    <origin xyz="-0.352 0 0.110" rpy="0 0 0"/>
+  </joint>
+
+  <link name="infrared_link">
+    
+  </link>
+<!-- ******************** end infrared ********************-->
+
+<!-- ******************** infrared ********************-->
+  <joint name="charge_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="charge_link"/>
+    <origin xyz="-0.352 0 0.055" rpy="0 0 0"/>
+  </joint>
+
+  <link name="charge_link">
+    
+  </link>
+<!-- ******************** end infrared ********************-->
+
+<!-- ******************** ultrasonic_1 ********************-->
+  <joint name="ultrasonic_joint_1" type="fixed">
+    <parent link="base_link"/>
+    <child link="ultrasonic_link_1"/>
+    <origin xyz="0.34386 0.26526 0.06" rpy="-1.5707963268 0 0.7853981634"/>
+  </joint>
+
+  <link name="ultrasonic_link_1">
+    
+  </link>
+<!-- ******************** end ultrasonic_1 ********************-->
+
+<!-- ******************** ultrasonic_2 ********************-->
+  <joint name="ultrasonic_joint_2" type="fixed">
+    <parent link="base_link"/>
+    <child link="ultrasonic_link_2"/>
+    <origin xyz="0.355 0.1730 0.06" rpy="0 0 0"/>
+  </joint>
+
+  <link name="ultrasonic_link_2">
+    
+  </link>
+<!-- ******************** end ultrasonic_3 ********************-->
+<!-- ******************** ultrasonic_3 ********************-->
+  <joint name="ultrasonic_joint_3" type="fixed">
+    <parent link="base_link"/>
+    <child link="ultrasonic_link_3"/>
+    <origin xyz="0.355 0.058 0.06" rpy="0 0 0"/>
+  </joint>
+
+  <link name="ultrasonic_link_3">
+    
+  </link>
+<!-- ******************** end ultrasonic_3 ********************-->
+<!-- ******************** ultrasonic_4 ********************-->
+  <joint name="ultrasonic_joint_4" type="fixed">
+    <parent link="base_link"/>
+    <child link="ultrasonic_link_4"/>
+    <origin xyz="0.355 -0.058 0.06" rpy="0 0 0"/>
+  </joint>
+
+  <link name="ultrasonic_link_4">
+    
+  </link>
+<!-- ******************** end ultrasonic_4 ********************-->
+<!-- ******************** ultrasonic_5 ********************-->
+  <joint name="ultrasonic_joint_5" type="fixed">
+    <parent link="base_link"/>
+    <child link="ultrasonic_link_5"/>
+    <origin xyz="0.355 -0.172 0.06" rpy="0 0 0"/>
+  </joint>
+
+  <link name="ultrasonic_link_5">
+    
+  </link>
+<!-- ******************** end ultrasonic_5 ********************-->
+
+<!-- ******************** ultrasonic_6 ********************-->
+  <joint name="ultrasonic_joint_6" type="fixed">
+    <parent link="base_link"/>
+    <child link="ultrasonic_link_6"/>
+    <origin xyz="0.34386 -0.26526 0.06" rpy="-1.5707963268 0 -0.7853981634"/>
+  </joint>
+
+  <link name="ultrasonic_link_6">
+    
+  </link>
+<!-- ******************** end ultrasonic_6 ********************-->
+
+</robot>
